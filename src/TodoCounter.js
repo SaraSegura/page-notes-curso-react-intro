@@ -1,9 +1,14 @@
 //props son un objecto
+import "./TodoCounter.css";
+
 function TodoCounter({ total, completed }) {
   return (
-    <h1>
-      Has completado {completed} de {total} TODOS
-    </h1>
+    <div>
+      <h1>Crea una nueva tarea</h1>
+      <h2>
+        Has completado {completed} de {total} TODOS
+      </h2>
+    </div>
   );
 }
 

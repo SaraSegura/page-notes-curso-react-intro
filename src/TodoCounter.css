@@ -1,0 +1,39 @@
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  color: aliceblue;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: start;
+  color: aliceblue;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
