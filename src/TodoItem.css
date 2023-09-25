@@ -1,0 +1,21 @@
+.containerItem {
+  border: 1px solid rgb(45, 25, 228);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #0e002b7f;
+  border-radius: 5px;
+}
+
+.filled {
+  border: 1px solid red;
+}
+
+.remove {
+  border: 1px solid red;
+}
+
+.textList {
+  color: #ffff;
+}

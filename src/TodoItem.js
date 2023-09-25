@@ -1,9 +1,11 @@
+import "./TodoItem.css";
+
 function TodoItem(props) {
   return (
-    <li>
-      <span>V </span>
-      <p>{props.text}</p>
-      <span>X</span>
+    <li className="containerItem">
+      <span className="filled">✅ </span>
+      <p className="textList">{props.text}</p>
+      <span className="remove">X</span>
     </li>
   );
 }

@@ -1,13 +1,27 @@
 h1 {
   text-align: center;
   margin-top: 40px;
-  color: aliceblue;
+  background-image: linear-gradient(
+    to right,
+    #006aff,
+    #ff26ba,
+    #bd01e3,
+    #43fff9
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 900;
 }
 
 h2 {
   font-size: 24px;
   text-align: start;
-  color: aliceblue;
+  background-image: linear-gradient(to right, #700494, #000cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: 300px;
 }
 
 @media (max-width: 767px) {
@@ -17,15 +31,17 @@ h2 {
 
   h2 {
     font-size: 16px;
+    margin-left: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   h1 {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 24px;
+    margin-left: 60px;
   }
 }
 @media (min-width: 1024px) {
@@ -34,6 +50,7 @@ h2 {
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 26px;
+    margin-left: 80px;
   }
 }

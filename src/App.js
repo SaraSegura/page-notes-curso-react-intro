@@ -4,6 +4,7 @@ import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 import React from "react";
+import "./App.css";
 
 // Componente de react JSX
 // elementos de react va en minusculas
@@ -11,7 +12,7 @@ import React from "react";
 
 const defaultTodos = [
   { text: "Hacer sopa", completed: false },
-  { text: "Estudiar en platzi", completed: false },
+  { text: "Estudiar en platzi ", completed: false },
   { text: "lavar ropa", completed: false },
   { text: "Hacer ejercicio", completed: false },
   { text: "picar cebolla", completed: false },
@@ -21,19 +22,22 @@ function App() {
   return (
     <>
       <TodoCounter completed={16} total={25} />
+
       <TodoSearch />
-
-      <TodoList>
-        {defaultTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-          />
-        ))}
-      </TodoList>
-
-      <CreateTodoButton />
+      <>
+        <div className="container">
+          <TodoList>
+            {defaultTodos.map((todo) => (
+              <TodoItem
+                key={todo.text}
+                text={todo.text}
+                completed={todo.completed}
+              />
+            ))}
+          </TodoList>
+          <CreateTodoButton />
+        </div>
+      </>
     </>
   );
 }

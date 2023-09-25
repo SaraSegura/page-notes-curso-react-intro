@@ -1,1 +1,31 @@
+.container {
+  display: flex;
+  border: 2px solid green;
+}
 
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
