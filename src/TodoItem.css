@@ -1,19 +1,21 @@
 .containerItem {
-  border: 1px solid rgb(45, 25, 228);
   list-style: none;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  background-color: #0e002b7f;
-  border-radius: 5px;
+  background-color: #0e002b;
+  background-image: linear-gradient(90deg, #0e002b 0%, #2d00d8 100%);
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.filled {
-  border: 1px solid red;
+.ckeck #ckeckIcon:hover {
+  fill: #ff26ba;
 }
 
-.remove {
-  border: 1px solid red;
+.delete #deleteIcon:hover {
+  fill: #ffffff58;
 }
 
 .textList {

@@ -17,7 +17,7 @@ h1 {
 h2 {
   font-size: 24px;
   text-align: start;
-  background-image: linear-gradient(to right, #700494, #000cf6);
+  background-image: linear-gradient(to right, #0ce3ff, #000cf6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -26,7 +26,7 @@ h2 {
 
 @media (max-width: 767px) {
   h1 {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   h2 {
@@ -36,7 +36,7 @@ h2 {
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   h1 {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   h2 {
@@ -46,7 +46,7 @@ h2 {
 }
 @media (min-width: 1024px) {
   h1 {
-    font-size: 40px;
+    font-size: 50px;
   }
 
   h2 {

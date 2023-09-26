@@ -2,7 +2,6 @@
   margin: 0;
   justify-content: center;
   padding: 0;
-  border: 1px solid orange;
 }
 
 @media (max-width: 767px) {
@@ -17,6 +16,6 @@
 }
 @media (min-width: 1024px) {
   .list {
-    width: 40%;
+    width: 39%;
   }
 }
