@@ -2,7 +2,7 @@ import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
-import { CreateTodoButton } from "./CreateTodoButton";
+import { CreateNewTodoButton } from "./CreateNewTodo-Button";
 import React from "react";
 import "./App.css";
 
@@ -16,6 +16,10 @@ const defaultTodos = [
   { text: "lavar ropa", completed: false },
   { text: "Hacer ejercicio", completed: false },
   { text: "picar cebolla", completed: false },
+  { text: "hola cebolla", completed: false },
+  { text: "mi cebolla", completed: false },
+  { text: "mejor cebolla", completed: false },
+  { text: "caminar cebolla", completed: false },
 ];
 
 function App() {
@@ -35,7 +39,7 @@ function App() {
               />
             ))}
           </TodoList>
-          <CreateTodoButton />
+          <CreateNewTodoButton />
         </div>
       </>
     </>
