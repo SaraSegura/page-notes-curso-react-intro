@@ -18,6 +18,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+.search-container input:focus {
+  outline-color: #0e002b;
+}
+
 .search-container input::placeholder {
   color: #fff;
   font-weight: 400;
