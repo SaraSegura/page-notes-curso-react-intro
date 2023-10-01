@@ -3,6 +3,10 @@ import "./TodoSearch.css";
 import "./assets/search.svg";
 
 function TodoSearch() {
+  // actualizador se debe llamar igual pero se le agrega el set
+  const [searchValue, setSearchValue] = React.useState("");
+
+  console.log("los usurios buscan todos de " + searchValue);
   return (
     <div className="search-container">
       <input
@@ -12,6 +16,10 @@ function TodoSearch() {
         placeholder="Escribe tu búsqueda aquí"
         autoFocus
         autoComplete="on"
+        value={searchValue}
+        onChange={(event) => {
+          setSearchValue(event.target.value);
+        }}
       />
       <button type="submit" name="buscar" className="search-button">
         <div>
