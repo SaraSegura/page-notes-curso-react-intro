@@ -2,11 +2,7 @@ import React from "react";
 import "./TodoSearch.css";
 import "./assets/search.svg";
 
-function TodoSearch() {
-  // actualizador se debe llamar igual pero se le agrega el set
-  const [searchValue, setSearchValue] = React.useState("");
-
-  console.log("los usurios buscan todos de " + searchValue);
+function TodoSearch({ searchValue, setSearchValue }) {
   return (
     <div className="search-container">
       <input

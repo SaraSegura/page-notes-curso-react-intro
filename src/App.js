@@ -12,7 +12,7 @@ import { CreateNewTodoButton } from "./CreateNewTodoButton";
 // Si comensaran en minusculas serian componentes de react
 
 const defaultTodos = [
-  { text: "Hacer sopa", completed: false },
+  { text: "Hacer sopa", completed: true },
   { text: "Estudiar en platzi ", completed: false },
   { text: "lavar ropa", completed: false },
   { text: "Hacer ejercicio", completed: false },
@@ -21,18 +21,33 @@ const defaultTodos = [
   { text: "mi cebolla", completed: false },
   { text: "mejor cebolla", completed: false },
   { text: "caminar cebolla", completed: false },
+  { text: "Usar estados ", completed: false },
 ];
 
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState("");
+
+  const completedTodos = todos.filter((todo) => !!todo.completed).length;
+  const totalTodos = todos.length;
+
+  const searchedTodos = todos.filter((todo) => {
+    const todoText = todo.text.toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    return todoText.includes(searchText);
+  });
+
+  console.log("Los usuarios buscan todos de " + searchValue);
+
   return (
     <>
-      <TodoCounter completed={16} total={25} />
+      <TodoCounter completed={completedTodos} total={totalTodos} />
 
-      <TodoSearch />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <div className="container">
         <TodoList>
-          {defaultTodos.map((todo) => (
+          {searchedTodos.map((todo) => (
             <TodoItem
               key={todo.text}
               text={todo.text}
