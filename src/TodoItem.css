@@ -23,7 +23,11 @@
 }
 
 .iconckeck {
-  border-radius: 50px;
+  background-color: #fff;
+  width: 14px;
+  height: 14px;
+  padding: 2px;
+  border-radius: 50%;
   box-shadow: 1px -1px 5px #fff;
 }
 

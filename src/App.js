@@ -12,7 +12,7 @@ import { CreateNewTodoButton } from "./CreateNewTodoButton";
 // Si comensaran en minusculas serian componentes de react
 
 const defaultTodos = [
-  { text: "Hacer sopa", completed: true },
+  { text: "Hacer sopa", completed: false },
   { text: "Estudiar en platzi ", completed: false },
   { text: "lavar ropa", completed: false },
   { text: "Hacer ejercicio", completed: false },
@@ -38,10 +38,9 @@ function App() {
   });
 
   const completeTodo = (text) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text == text);
-
-    newTodos[todoIndex].completed = true;
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     setTodos(newTodos);
   };
 
