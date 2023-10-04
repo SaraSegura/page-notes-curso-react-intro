@@ -1,6 +1,5 @@
 import React from "react";
 import "./TodoSearch.css";
-import "./assets/search.svg";
 
 function TodoSearch({ searchValue, setSearchValue }) {
   return (
