@@ -1,11 +1,11 @@
 import React from "react";
-import { TodoCounter } from "./TodoCounter";
-import { TodoSearch } from "./TodoSearch";
-import { TodoList } from "./TodoList";
-import { TodoItem } from "./TodoItem";
-
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
+import { TodoList } from "../TodoList";
+import { TodoItem } from "../TodoItem";
+import { CreateNewTodoButton } from "../CreateNewTodoButton";
+import { useLocalStorage } from "./useLocalStorage";
 import "./App.css";
-import { CreateNewTodoButton } from "./CreateNewTodoButton";
 
 // Componente de react JSX
 // elementos de react va en minusculas
@@ -29,18 +29,7 @@ import { CreateNewTodoButton } from "./CreateNewTodoButton";
 // localStorage.removeItem("TODOS_V1");
 
 function App() {
-  const localStorageTodos = localStorage.getItem("TODOS_V1");
-
-  let parsedTodos;
-
-  if (!localStorageTodos) {
-    localStorage.setItem("TODOS_V1", JSON.stringify([]));
-    parsedTodos = [];
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-
-  const [todos, setTodos] = React.useState(parsedTodos);
+  const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -51,11 +40,6 @@ function App() {
     const searchText = searchValue.toLowerCase();
     return todoText.includes(searchText);
   });
-
-  const saveTodos = (newTodos) => {
-    localStorage.setItem("TODOS_V1", JSON.stringify(newTodos));
-    setTodos(newTodos);
-  };
 
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
