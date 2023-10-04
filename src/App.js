@@ -11,21 +11,36 @@ import { CreateNewTodoButton } from "./CreateNewTodoButton";
 // elementos de react va en minusculas
 // Si comensaran en minusculas serian componentes de react
 
-const defaultTodos = [
-  { text: "Hacer sopa", completed: false },
-  { text: "Estudiar en platzi ", completed: false },
-  { text: "lavar ropa", completed: false },
-  { text: "Hacer ejercicio", completed: false },
-  { text: "picar cebolla", completed: false },
-  { text: "hola cebolla", completed: false },
-  { text: "mi cebolla", completed: false },
-  { text: "mejor cebolla", completed: false },
-  { text: "caminar cebolla", completed: false },
-  { text: "Usar estados ", completed: false },
-];
+// const defaultTodos = [
+//   { text: "Hacer sopa", completed: false },
+//   { text: "Estudiar en platzi ", completed: false },
+//   { text: "lavar ropa", completed: false },
+//   { text: "Hacer ejercicio", completed: false },
+//   { text: "picar cebolla", completed: false },
+//   { text: "hola cebolla", completed: false },
+//   { text: "mi cebolla", completed: false },
+//   { text: "mejor cebolla", completed: false },
+//   { text: "caminar cebolla", completed: false },
+//   { text: "Usar estados ", completed: false },
+// ];
+
+//  localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos))
+
+// localStorage.removeItem("TODOS_V1");
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const localStorageTodos = localStorage.getItem("TODOS_V1");
+
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem("TODOS_V1", JSON.stringify([]));
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState("");
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -37,11 +52,16 @@ function App() {
     return todoText.includes(searchText);
   });
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem("TODOS_V1", JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const deleteTodo = (text) => {
@@ -49,7 +69,7 @@ function App() {
     const todoIndex = newTodos.findIndex((todo) => todo.text == text);
 
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   return (
