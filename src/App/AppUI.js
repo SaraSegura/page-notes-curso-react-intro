@@ -28,7 +28,13 @@ function AppUI({
 
       <div className="container">
         <TodoList>
-          {loading && <TodosLoading />}
+          {loading && (
+            <>
+              <TodosLoading />
+              <TodosLoading />
+              <TodosLoading />
+            </>
+          )}
           {error && <TodosError />}
           {!loading && searchedTodos.length === 0 && <EmptyTodos />}
 
