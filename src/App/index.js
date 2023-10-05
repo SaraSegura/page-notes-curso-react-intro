@@ -7,7 +7,8 @@ import "./App.css";
 // elementos de react va en minusculas
 // Si comensaran en minusculas serian componentes de react
 
-// const defaultTodos = [
+// localStorage.removeItem("TODOS_V1");
+//  const defaultTodos = [
 //   { text: "Hacer sopa", completed: false },
 //   { text: "Estudiar en platzi ", completed: false },
 //   { text: "lavar ropa", completed: false },
@@ -22,10 +23,13 @@ import "./App.css";
 
 //  localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos))
 
-// localStorage.removeItem("TODOS_V1");
-
 function App() {
-  const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -54,6 +58,8 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       completedTodos={completedTodos}
       totalTodos={totalTodos}
       searchValue={searchValue}
