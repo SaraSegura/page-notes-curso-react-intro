@@ -8,6 +8,7 @@ import { CreateNewTodoButton } from "../CreateNewTodoButton";
 import { TodosLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
+import { CreateNewTodoButtonLoading } from "../CreateNewTodoButtonLoading";
 
 function AppUI({
   loading,
@@ -48,7 +49,7 @@ function AppUI({
             />
           ))}
         </TodoList>
-        <CreateNewTodoButton />
+        {loading ? <CreateNewTodoButtonLoading /> : <CreateNewTodoButton />}
       </div>
     </>
   );
