@@ -42,3 +42,19 @@ function useLocalStorage(itemName, initialValue) {
 }
 
 export { useLocalStorage };
+
+// localStorage.removeItem("TODOS_V1");
+//  const defaultTodos = [
+//   { text: "Hacer sopa", completed: false },
+//   { text: "Estudiar en platzi ", completed: false },
+//   { text: "lavar ropa", completed: false },
+//   { text: "Hacer ejercicio", completed: false },
+//   { text: "picar cebolla", completed: false },
+//   { text: "hola cebolla", completed: false },
+//   { text: "mi cebolla", completed: false },
+//   { text: "mejor cebolla", completed: false },
+//   { text: "caminar cebolla", completed: false },
+//   { text: "Usar estados ", completed: false },
+// ];
+
+//  localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos))
