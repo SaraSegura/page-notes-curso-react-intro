@@ -40,6 +40,7 @@ function AppUI() {
             />
           ))}
         </TodoList>
+
         {loading ? <CreateNewTodoButtonLoading /> : <CreateNewTodoButton />}
       </div>
     </>
