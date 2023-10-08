@@ -10,7 +10,7 @@ function TodoSearch() {
         type="search"
         id="busqueda"
         name="busqueda"
-        placeholder="Escribe tu búsqueda aquí"
+        placeholder="Escribe tu búsqueda aquí..."
         autoFocus
         autoComplete="on"
         value={searchValue}

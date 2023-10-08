@@ -1,4 +1,5 @@
-import React from "react";
+// AppUI.js
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
@@ -9,10 +10,43 @@ import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
 import { TodoContext } from "../TodoContext";
 import { TodoForm } from "../TodoForm";
+import { CreateTodoButton } from "../CreateTodoButton";
+import { Modal } from "../Modal";
 
 function AppUI() {
-  const { loading, error, searchedTodos, completeTodo, deleteTodo } =
-    React.useContext(TodoContext);
+  const {
+    loading,
+    error,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  } = React.useContext(TodoContext);
+
+  // Estado para controlar el tamaño de la pantalla
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isMediumScreen, setIsMediumScreen] = useState(false);
+
+  useEffect(() => {
+    // Verificar el tamaño de la ventana al cargar la página
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      setIsSmallScreen(windowWidth < 769); // Pantallas pequeñas (teléfonos celulares)
+      setIsMediumScreen(windowWidth >= 769 && windowWidth < 1024); // Pantallas medianas (tabletas)
+    };
+
+    handleResize(); // Comprobar el tamaño de la ventana al cargar la página
+
+    // Agregar un event listener para seguir el cambio de tamaño de la ventana
+    window.addEventListener("resize", handleResize);
+
+    // Limpiar el event listener cuando el componente se desmonte
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <TodoCounter />
@@ -40,7 +74,22 @@ function AppUI() {
           ))}
         </TodoList>
 
-        <TodoForm />
+        {/* Controla la visibilidad del botón en función del tamaño de la pantalla */}
+        <CreateTodoButton
+          setOpenModal={setOpenModal}
+          isVisible={!isSmallScreen}
+          isVisibleMediumScreen={!isMediumScreen}
+        />
+
+        {/* Renderiza el contenido del formulario en lugar del modal en pantallas grandes */}
+        {!isSmallScreen && !isMediumScreen && !openModal && <TodoForm />}
+
+        {/* Renderiza el modal solo en pantallas pequeñas y medianas */}
+        {(openModal || isMediumScreen) && (
+          <Modal>
+            <TodoForm />
+          </Modal>
+        )}
       </div>
     </>
   );
