@@ -4,12 +4,11 @@ import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
-import { CreateNewTodoButton } from "../CreateNewTodoButton";
 import { TodosLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
-import { CreateNewTodoButtonLoading } from "../CreateNewTodoButtonLoading";
 import { TodoContext } from "../TodoContext";
+import { TodoForm } from "../TodoForm";
 
 function AppUI() {
   const { loading, error, searchedTodos, completeTodo, deleteTodo } =
@@ -41,7 +40,7 @@ function AppUI() {
           ))}
         </TodoList>
 
-        {loading ? <CreateNewTodoButtonLoading /> : <CreateNewTodoButton />}
+        <TodoForm />
       </div>
     </>
   );

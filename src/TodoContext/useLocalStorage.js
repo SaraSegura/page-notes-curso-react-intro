@@ -10,6 +10,8 @@ function useLocalStorage(itemName, initialValue) {
       try {
         const localStorageItem = localStorage.getItem(itemName);
 
+        console.log("local--->", localStorageItem);
+
         let parsedItem;
 
         if (!localStorageItem) {
