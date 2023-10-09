@@ -44,11 +44,16 @@ textarea:focus {
 }
 
 .TodoForm-button {
+  cursor: pointer;
   padding: 5px 8px;
   border-radius: 5px;
   border: none;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   font-family: "Poppins", sans-serif;
+}
+
+.TodoForm-button:hover {
+  transform: scale(1.1);
 }
 
 .TodoForm-button--cancel {
