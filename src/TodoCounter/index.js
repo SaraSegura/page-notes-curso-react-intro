@@ -10,7 +10,7 @@ function TodoCounter() {
     <div>
       <h1>Crea una nueva tarea</h1>
       <h2>
-        Has realizado <br></br> {completedTodos} de {totalTodos} TODOS!!!
+        Has realizado <br></br> {completedTodos} de {totalTodos} TAREAS!!!
       </h2>
     </div>
   );
