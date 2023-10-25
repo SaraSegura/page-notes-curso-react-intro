@@ -1,18 +1,15 @@
-// CreateTodoButton.js
+import React from "react";
 import "./CreateTodoButton.css";
 
-function CreateTodoButton({ setOpenModal, isVisible, isVisibleMediumScreen }) {
+function CreateTodoButton(props) {
+  const onClickButton = () => {
+    props.setOpenModal((prevState) => !prevState);
+  };
+
   return (
-    (isVisible || isVisibleMediumScreen) && (
-      <button
-        className="CreateTodoButton"
-        onClick={() => {
-          setOpenModal((state) => !state);
-        }}
-      >
-        +
-      </button>
-    )
+    <button className="CreateTodoButton" onClick={onClickButton}>
+      +
+    </button>
   );
 }
 

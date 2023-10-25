@@ -33,26 +33,6 @@ function App() {
     addTodo,
   } = useTodos();
 
-  // Estado para controlar el tamaño de la pantalla
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isMediumScreen, setIsMediumScreen] = useState(false); // Add this line
-
-  useEffect(() => {
-    // Verificar el tamaño de la ventana al cargar la página
-    const handleResize = () => {
-      const windowWidth = window.innerWidth;
-      setIsSmallScreen(windowWidth < 769);
-      setIsMediumScreen(windowWidth >= 769 && windowWidth < 1024); // Update this line
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
     <>
       <TodoHeader>
@@ -60,18 +40,14 @@ function App() {
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
       <div className="container">
-        <TodoList>
-          {loading && (
-            <>
-              <TodosLoading />
-              <TodosLoading />
-              <TodosLoading />
-            </>
-          )}
-          {error && <TodosError />}
-          {!loading && searchedTodos.length === 0 && <EmptyTodos />}
-
-          {searchedTodos.map((todo) => (
+        <TodoList
+          error={error}
+          loading={loading}
+          searchedTodos={searchedTodos}
+          onError={() => <TodosError />}
+          onLoading={() => <TodosLoading />}
+          onEmptyTodos={() => <EmptyTodos />}
+          render={(todo) => (
             <TodoItem
               key={todo.text}
               text={todo.text}
@@ -79,22 +55,16 @@ function App() {
               onComplete={() => completeTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
             />
-          ))}
-        </TodoList>
-
-        <CreateTodoButton
-          setOpenModal={setOpenModal}
-          isVisible={!isSmallScreen}
-          isVisibleMediumScreen={!isMediumScreen}
+          )}
         />
 
-        {!isSmallScreen && !isMediumScreen && !openModal && <TodoForm />}
-
-        {(openModal || isMediumScreen) && (
+        {!!openModal && (
           <Modal>
             <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
           </Modal>
         )}
+
+        <CreateTodoButton setOpenModal={setOpenModal} />
       </div>
     </>
   );
