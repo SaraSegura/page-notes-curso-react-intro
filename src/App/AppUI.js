@@ -1,8 +1,6 @@
 // AppUI.js
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { TodosLoading } from "../TodosLoading";
@@ -12,6 +10,9 @@ import { TodoContext } from "../TodoContext";
 import { TodoForm } from "../TodoForm";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { Modal } from "../Modal";
+import TodoHeader from "../TodoHeader";
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
 
 function AppUI() {
   const {
@@ -22,26 +23,27 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
   } = React.useContext(TodoContext);
 
   // Estado para controlar el tamaño de la pantalla
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isMediumScreen, setIsMediumScreen] = useState(false);
+  const [isMediumScreen, setIsMediumScreen] = useState(false); // Add this line
 
   useEffect(() => {
     // Verificar el tamaño de la ventana al cargar la página
     const handleResize = () => {
       const windowWidth = window.innerWidth;
-      setIsSmallScreen(windowWidth < 769); // Pantallas pequeñas (teléfonos celulares)
-      setIsMediumScreen(windowWidth >= 769 && windowWidth < 1024); // Pantallas medianas (tabletas)
+      setIsSmallScreen(windowWidth < 769);
+      setIsMediumScreen(windowWidth >= 769 && windowWidth < 1024); // Update this line
     };
 
-    handleResize(); // Comprobar el tamaño de la ventana al cargar la página
-
-    // Agregar un event listener para seguir el cambio de tamaño de la ventana
+    handleResize();
     window.addEventListener("resize", handleResize);
 
-    // Limpiar el event listener cuando el componente se desmonte
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -49,8 +51,10 @@ function AppUI() {
 
   return (
     <>
-      <TodoCounter />
-      <TodoSearch />
+      <TodoHeader>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      </TodoHeader>
       <div className="container">
         <TodoList>
           {loading && (
@@ -74,17 +78,14 @@ function AppUI() {
           ))}
         </TodoList>
 
-        {/* Controla la visibilidad del botón en función del tamaño de la pantalla */}
         <CreateTodoButton
           setOpenModal={setOpenModal}
           isVisible={!isSmallScreen}
           isVisibleMediumScreen={!isMediumScreen}
         />
 
-        {/* Renderiza el contenido del formulario en lugar del modal en pantallas grandes */}
         {!isSmallScreen && !isMediumScreen && !openModal && <TodoForm />}
 
-        {/* Renderiza el modal solo en pantallas pequeñas y medianas */}
         {(openModal || isMediumScreen) && (
           <Modal>
             <TodoForm />
