@@ -30,6 +30,10 @@
   font-weight: 600;
 }
 
+.search-container input:disabled {
+  opacity: 25%;
+}
+
 /* responsive */
 
 @media (max-width: 767px) {
