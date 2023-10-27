@@ -11,8 +11,9 @@ import { Modal } from "../Modal";
 import TodoHeader from "../TodoHeader";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
-import "./App.css";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 
+import "./App.css";
 // Componente de react JSX
 // elementos de react va en minusculas
 // Si comensaran en minusculas serian componentes de react
@@ -31,6 +32,7 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
+    sincronizeTodos,
   } = useTodos();
 
   return (
@@ -83,6 +85,8 @@ function App() {
         )}
 
         <CreateTodoButton setOpenModal={setOpenModal} />
+
+        <ChangeAlertWithStorageListener sincronize={sincronizeTodos} />
       </div>
     </>
   );
