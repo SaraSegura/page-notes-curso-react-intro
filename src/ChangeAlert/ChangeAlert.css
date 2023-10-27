@@ -1,28 +1,36 @@
-.container-cambios {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.ChangeAlert-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1e1e1f50;
+  z-index: 2;
 }
 
-.p-cambios {
-  color: #fff;
+.ChangeAlert-container {
+  position: fixed;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  padding: 34px;
+  background-color: #fbfbfb;
+  color: #000000;
+  z-index: 2;
+  text-align: center;
+  font-size: 20px;
 }
 
-.btn-recargar {
+.ChangeAlert-container button {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 16px;
   background-color: #ff26ba;
   color: #ffff;
   cursor: pointer;
-  padding: 5px 8px;
+  padding: px 20px;
   border-radius: 5px;
   border: none;
   box-shadow: 2px 2px 5px rgba(146, 146, 146, 0.5);
   font-family: "Poppins", sans-serif;
-}
-
-@media (max-width: 767px) {
-  .container-cambios {
-    margin-bottom: 10px;
-    margin-top: -15px;
-  }
 }
