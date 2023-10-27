@@ -4,7 +4,7 @@ import "./ChangeAlert.css";
 function ChangeAlert({ show, toggleShow }) {
   if (show) {
     return (
-      <div>
+      <div className="container-cambios">
         <p className="p-cambios">Hubo cambios!!</p>
         <button className="btn-recargar" onClick={() => toggleShow(false)}>
           Volver a cargar la información

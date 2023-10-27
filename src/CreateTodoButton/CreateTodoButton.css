@@ -6,8 +6,8 @@
   cursor: pointer;
   font-size: 50px;
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 40px;
+  right: 20px;
   font-weight: bold;
   color: #fafafa;
   display: flex;
@@ -23,6 +23,13 @@
 
 .CreateTodoButton:hover {
   transform: rotate(224deg);
+}
+
+@media (max-width: 767px) {
+  .CreateTodoButton {
+    height: 50px;
+    width: 50px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
