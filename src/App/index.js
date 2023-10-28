@@ -11,7 +11,7 @@ import { Modal } from "../Modal";
 import TodoHeader from "../TodoHeader";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
-import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+import { ChangeAlert } from "../ChangeAlert";
 
 import "./App.css";
 // Componente de react JSX
@@ -86,7 +86,7 @@ function App() {
 
         <CreateTodoButton setOpenModal={setOpenModal} />
 
-        <ChangeAlertWithStorageListener sincronize={sincronizeTodos} />
+        <ChangeAlert sincronize={sincronizeTodos} />
       </div>
     </>
   );
