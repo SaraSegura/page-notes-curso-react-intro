@@ -32,7 +32,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://SaraSegura.github.io/page-notes-curso-react-intro",
+  "homepage": "https://sarasegura.github.io/page-notes-curso-react-intro",
   "devDependencies": {
     "gh-pages": "^6.0.0"
   }
