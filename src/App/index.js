@@ -19,21 +19,21 @@ import "./App.css";
 // Si comensaran en minusculas serian componentes de react
 
 function App() {
+  const { state, stateUpdaters } = useTodos();
+
   const {
     loading,
     error,
     searchedTodos,
     completeTodo,
-    deleteTodo,
     openModal,
-    setOpenModal,
     completedTodos,
     totalTodos,
     searchValue,
-    setSearchValue,
-    addTodo,
-    sincronizeTodos,
-  } = useTodos();
+  } = state;
+
+  const { setOpenModal, deleteTodo, setSearchValue, addTodo, sincronizeTodos } =
+    stateUpdaters;
 
   return (
     <>
