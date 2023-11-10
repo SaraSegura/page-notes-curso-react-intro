@@ -61,12 +61,12 @@ function HomePage() {
         >
           {(todo) => (
             <TodoItem
-              key={todo.text}
+              key={todo.id}
               text={todo.text}
               completed={todo.completed}
-              onComplete={() => completeTodo(todo.text)}
+              onComplete={() => completeTodo(todo.id)}
               onEdit={() => console.log("editar tarea")}
-              onDelete={() => deleteTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.id)}
             />
           )}
         </TodoList>
