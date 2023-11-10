@@ -37,7 +37,7 @@ function HomePage() {
   } = stateUpdaters;
 
   return (
-    <>
+    <React.Fragment>
       <TodoHeader loading={loading}>
         <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -65,6 +65,7 @@ function HomePage() {
               text={todo.text}
               completed={todo.completed}
               onComplete={() => completeTodo(todo.text)}
+              onEdit={() => console.log("editar tarea")}
               onDelete={() => deleteTodo(todo.text)}
             />
           )}
@@ -80,7 +81,7 @@ function HomePage() {
 
         <ChangeAlert sincronize={sincronizeTodos} />
       </div>
-    </>
+    </React.Fragment>
   );
 }
 

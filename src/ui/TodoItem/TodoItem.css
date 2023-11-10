@@ -31,11 +31,27 @@
   box-shadow: 1px -1px 5px #fff;
 }
 
+.container-icons-edit-delete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 2px;
+}
+
+#editIcon {
+  fill: #ffff;
+}
+
 #deleteIcon {
   fill: #ffff;
 }
 
 #deleteIcon:hover {
+  fill: #888888;
+}
+
+#editIcon:hover {
   fill: #888888;
 }
 
