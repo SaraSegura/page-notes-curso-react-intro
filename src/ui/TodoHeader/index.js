@@ -10,4 +10,4 @@ function TodoHeader({ children, loading }) {
   );
 }
 
-export default TodoHeader;
+export { TodoHeader };

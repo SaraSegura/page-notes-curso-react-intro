@@ -1,8 +1,8 @@
 import React from "react";
 
 import "./TodoItem.css";
-import "../assets/ckeck.svg";
-import "../assets/delete.svg";
+import "../../assets/ckeck.svg";
+import "../../assets/delete.svg";
 
 function TodoItem(props) {
   const completed = props?.completed;

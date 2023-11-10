@@ -1,39 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { useTodos } from "./useTodos";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { TodosLoading } from "../TodosLoading";
-import { TodosError } from "../TodosError";
-import { EmptyTodos } from "../EmptyTodos";
-import { TodoForm } from "../TodoForm";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { Modal } from "../Modal";
-import TodoHeader from "../TodoHeader";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { ChangeAlert } from "../ChangeAlert";
+import React from "react";
+import "../App.css";
+import { useTodos } from "../useTodos";
+import { TodoHeader } from "../../ui/TodoHeader";
+import { TodoCounter } from "../../ui/TodoCounter";
+import { TodoSearch } from "../../ui/TodoSearch";
+import { TodoList } from "../../ui/TodoList";
+import { TodoItem } from "../../ui/TodoItem";
+import { TodosError } from "../../ui/TodosError";
+import { TodosLoading } from "../../ui/TodosLoading";
+import { EmptyTodos } from "../../ui/EmptyTodos";
+import { TodoForm } from "../../ui/TodoForm";
+import { CreateTodoButton } from "../../ui/CreateTodoButton";
+import { Modal } from "../../ui/Modal";
+import { ChangeAlert } from "../../ui/ChangeAlert";
 
-import "./App.css";
-// Componente de react JSX
-// elementos de react va en minusculas
-// Si comensaran en minusculas serian componentes de react
-
-function App() {
+function HomePage() {
   const { state, stateUpdaters } = useTodos();
 
   const {
-    loading,
     error,
+    loading,
     searchedTodos,
-    completeTodo,
-    openModal,
-    completedTodos,
     totalTodos,
+    completedTodos,
+    openModal,
     searchValue,
   } = state;
 
-  const { setOpenModal, deleteTodo, setSearchValue, addTodo, sincronizeTodos } =
-    stateUpdaters;
+  const {
+    setOpenModal,
+    addTodo,
+    completeTodo,
+    deleteTodo,
+    setSearchValue,
+    sincronizeTodos,
+  } = stateUpdaters;
 
   return (
     <>
@@ -57,15 +58,6 @@ function App() {
               No hay resultados para "{searchText}"
             </p>
           )}
-          // render={todo => (
-          //   <TodoItem
-          //     key={todo.text}
-          //     text={todo.text}
-          //     completed={todo.completed}
-          //     onComplete={() => completeTodo(todo.text)}
-          //     onDelete={() => deleteTodo(todo.text)}
-          //   />
-          // )}
         >
           {(todo) => (
             <TodoItem
@@ -92,4 +84,4 @@ function App() {
   );
 }
 
-export default App;
+export { HomePage };
