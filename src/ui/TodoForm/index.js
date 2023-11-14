@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 function TodoForm(props) {
   const navigate = useNavigate();
-  const [newTodoValue, setNewTodoValue] = React.useState("");
+  const [newTodoValue, setNewTodoValue] = React.useState(
+    props.defaultTodoText || ""
+  );
 
   const OnCancel = () => {
     navigate("/");
@@ -16,8 +18,8 @@ function TodoForm(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    navigate("/");
     props.submitEvent(newTodoValue);
+    navigate("/");
   };
 
   return (
