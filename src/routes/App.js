@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/new" element={<NewTodoPage />} />
-          <Route path="/edit:id" element={<EditTodoPage />} />
+          <Route path="/edit/:id" element={<EditTodoPage />} />
           <Route path="*" element={<p>Not found</p>} />
         </Routes>
       </HashRouter>
