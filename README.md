@@ -39,5 +39,5 @@ npm run deploy
   ```
 
 ## Autor
-Sara Paola Segura Devia- Front-end Developer.
+Sara Paola Segura Devia - Front-end Developer.
 
