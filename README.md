@@ -21,19 +21,19 @@ Esta es una aplicación de toma de notas que te permite crear, eliminar, editar,
   ```bash
   npm start
   ```
--**build:** Construye la aplicación para producción en la carpeta build.
+- **build:** Construye la aplicación para producción en la carpeta build.
   ```bash
  npm run build
   ```
--**eject:** Expone las configuraciones de webpack y Babel para personalizaciones avanzadas. (Nota: esto es irreversible)
+- **eject:** Expone las configuraciones de webpack y Babel para personalizaciones avanzadas. (Nota: esto es irreversible)
   ```bash
 npm run eject
   ```
--**predeploy:** Se ejecuta automáticamente antes de la implementación. Construye la aplicación.
+- **predeploy:** Se ejecuta automáticamente antes de la implementación. Construye la aplicación.
   ```bash
 npm run predeploy
   ```
--**deploy:** Implementa la aplicación en GitHub Pages utilizando la biblioteca gh-pages.
+- **deploy:** Implementa la aplicación en GitHub Pages utilizando la biblioteca gh-pages.
   ```bash
 npm run deploy
   ```
