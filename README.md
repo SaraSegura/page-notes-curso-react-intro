@@ -1,10 +1,11 @@
 # [Aplicación de Notas 📝](https://sarasegura.github.io/page-notes-curso-react-intro/)
-Esta es una aplicación de toma de notas que te permite crear, eliminar, completar y buscar notas. Desarrollada con Create React App, HTML, React, CSS y React Router DOM 6.
+Esta es una aplicación de toma de notas que te permite crear, eliminar, editar, completar y buscar notas. Desarrollada con Create React App, HTML, React, CSS y React Router DOM 6.
 
 ## Características
 
 - **Crear Notas:** Agrega nuevas notas.
 - **Eliminar Notas:** Elimina las notas que ya no necesitas.
+-  **Editar Notas:** Edita las notas que ya no necesitas o que escribiste mal.
 - **Completar Notas:** Marca las notas como completadas.
 - **Buscar Notas:** Busca notas específicas.
 
